@@ -128,7 +128,6 @@
     
     .card-thumb { height: 220px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: 800; color: rgba(255,255,255,0.1); background-size: cover; background-position: center; }
     
-    /* Cores de Fundo dos Thumbnails para ficar bonito sem imagem */
     .bg-beleza { background: linear-gradient(135deg, #1e1b4b, #312e81); }
     .bg-food { background: linear-gradient(135deg, #451a03, #78350f); }
     .bg-servicos { background: linear-gradient(135deg, #022c22, #065f46); }
@@ -191,15 +190,38 @@
     .reveal.active { opacity: 1; transform: translateY(0); }
     .hidden { display: none; }
 
-    /* WA FLOAT */
+    /* --- BOTÃO FLUTUANTE WA (PADRÃO OFICIAL) --- */
     .wa-float {
-      position: fixed; bottom: 30px; right: 30px; z-index: 90;
-      width: 60px; height: 60px; border-radius: 50%;
+      position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+      width: 65px; height: 65px; border-radius: 50%;
       background: #25D366; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 25px rgba(37, 211, 102, 0.4); transition: 0.3s;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); transition: 0.3s; 
+      animation: pulse 2s infinite; text-decoration: none;
     }
-    .wa-float:hover { transform: scale(1.1); }
-    .wa-float svg { width: 35px; fill: white; }
+    .wa-float:hover { transform: scale(1.1); background-color: #1ebe57; }
+    
+    .wa-badge { 
+      position: absolute; top: -5px; right: -5px; 
+      background: #EF4444; color: white; font-size: 11px; font-weight: bold; 
+      width: 22px; height: 22px; border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; 
+      border: 2px solid var(--bg-dark); z-index: 10;
+    }
+    
+    .wa-tooltip { 
+      position: absolute; right: 80px; background: var(--bg-card); color: white; 
+      padding: 10px 20px; font-size: 0.85rem; font-weight: 600; 
+      box-shadow: var(--shadow-glow); border: 1px solid var(--border);
+      white-space: nowrap; pointer-events: none; border-radius: 20px;
+      opacity: 0; transform: translateX(10px); transition: 0.3s; letter-spacing: 0.5px;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+    @media (max-width: 768px) {
+        .wa-tooltip { display: none; } /* Oculta a tooltip no mobile para não ocupar a tela toda */
+    }
 
   </style>
 </head>
@@ -524,13 +546,16 @@
   </div>
 
   <a href="#" class="wa-float js-wa-geral" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382C17.112 14.382 16.752 14.248 16.479 13.973C15.933 13.427 15.933 12.539 16.479 11.993C17.025 11.447 17.913 11.447 18.459 11.993C19.005 12.539 19.005 13.427 18.459 13.973C18.186 14.248 17.826 14.382 17.472 14.382Z"/><path d="M5.957 14.382C5.597 14.382 5.237 14.248 4.964 13.973C4.418 13.427 4.418 12.539 4.964 11.993C5.51 11.447 6.398 11.447 6.944 11.993C7.49 12.539 7.49 13.427 6.944 13.973C6.671 14.248 6.311 14.382 5.957 14.382Z"/><path d="M12 2C6.486 2 2 6.486 2 12C2 17.514 6.486 22 12 22C17.514 22 22 17.514 22 12C22 6.486 17.514 2 12 2ZM12 20C7.589 20 4 16.411 4 12C4 7.589 7.589 4 12 4C16.411 4 20 7.589 20 12C20 16.411 16.411 20 12 20Z" fill="white"/><path d="M12 18C8.691 18 6 15.309 6 12H8C8 14.206 9.794 16 12 16C14.206 16 16 14.206 16 12H18C18 15.309 15.309 18 12 18Z" fill="white"/></svg>
+    <div class="wa-badge">1</div>
+    <div class="wa-tooltip">Falar com Especialista</div>
+    <svg viewBox="0 0 24 24" width="35" height="35" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
   </a>
 
   <script>
     // --- CONFIGURAÇÃO DO WHATSAPP ---
-    // Substitua pelo seu número (Ex: para Portugal 35191..., para o Brasil 5511...)
-    const PHONE = "34614604489"; 
+    const PHONE = "351910000000"; // INSIRA O SEU NÚMERO AQUI
     const getWaLink = (msg) => `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
 
     // Setar os botões gerais de contato
@@ -573,7 +598,7 @@
         iframe.src = card.dataset.file;
         modalTitle.innerText = card.dataset.title;
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Remove scroll da página fundo
+        document.body.style.overflow = 'hidden'; 
         
         // Link dinâmico do botão dentro do modal
         modalCtaBtn.onclick = () => window.open(getWaLink(`Olá! Vi o preview do modelo *${card.dataset.title}* no seu site e gostava de um orçamento para adaptar ao meu negócio.`), '_blank');
@@ -591,7 +616,7 @@
     // Fechar Modal
     const closeModal = () => {
       modal.classList.remove('active');
-      iframe.src = ''; // Limpa o iframe para não pesar o site
+      iframe.src = ''; 
       document.body.style.overflow = '';
     }
     document.getElementById('modalClose').onclick = closeModal;
