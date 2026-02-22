@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ótica Vision | Saúde Visual e Estilo em Lisboa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variáveis de Cor e Reset --- */
+        :root {
+            --primary: #0056b3; /* Azul Clínico/Confiança */
+            --primary-dark: #004494;
+            --accent: #25D366; /* Verde WhatsApp */
+            --text-dark: #1a1a1a;
+            --text-light: #f5f5f5;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0,0,0,0.08);
+            
+            --font-title: 'Montserrat', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: var(--font-body); 
+            background-color: var(--bg-light); 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            padding-bottom: 60px;
+        }
+        
+        img { max-width: 100%; display: block; }
+        h1, h2, h3 { font-family: var(--font-title); font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+        
+        /* --- Utilitários --- */
+        .container { width: 90%; max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+        .text-center { text-align: center; }
+        .section-padding { padding: 60px 0; }
+        
+        /* --- Barra de Aviso --- */
+        .top-bar {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* --- Botões --- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 15px 30px; border-radius: 50px; font-weight: 700;
+            text-decoration: none; transition: 0.3s; cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: none;
+            font-family: var(--font-title); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        
+        .btn-primary { background-color: var(--primary); color: white; }
+        .btn-primary:hover { background-color: var(--primary-dark); transform: translateY(-2px); }
+        
+        .btn-whatsapp { background-color: var(--accent); color: white; }
+        .btn-whatsapp:hover { background-color: #128C7E; transform: translateY(-2px); }
+
+        .btn-outline { border: 2px solid var(--white); color: var(--white); background: transparent; }
+        .btn-outline:hover { background: var(--white); color: var(--primary); }
+
+        /* --- Hero Section COM FOTO DE FUNDO --- */
+        header {
+            background-color: #1a1a1a;
+            height: 80vh;
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* FOTO: Pessoa escolhendo óculos */
+            background-image: url('fundo-otica.jpg');            
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            animation: zoomEffect 40s infinite alternate;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            /* Gradiente azul para leitura, igual à referência */
+            background: linear-gradient(to bottom, rgba(0, 40, 85, 0.7), rgba(0, 86, 179, 0.9));
+            z-index: 1;
+        }
+        
+        .hero-title { 
+            font-size: 3.5rem; margin-bottom: 20px; color: white; 
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .hero-subtitle { 
+            font-size: 1.3rem; margin-bottom: 40px; max-width: 700px; margin-left: auto; margin-right: auto;
+            opacity: 0.95; font-weight: 400; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        @keyframes zoomEffect {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* --- Marcas (Autoridade) --- */
+        .brands-bar { background: white; padding: 30px 0; border-bottom: 1px solid #eee; }
+        .brands-grid { 
+            display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; 
+            opacity: 0.6; filter: grayscale(100%); 
+        }
+        .brand-item { font-weight: 700; font-size: 1.5rem; color: #888; font-family: var(--font-title); }
+
+        /* --- Benefícios --- */
+        .benefits-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; 
+            margin-top: 40px;
+        }
+        .benefit-card {
+            background: white; padding: 30px; border-radius: 12px;
+            box-shadow: var(--shadow); text-align: center; transition: 0.3s;
+            border-bottom: 4px solid var(--primary);
+        }
+        .benefit-card:hover { transform: translateY(-5px); }
+        .benefit-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+
+        /* --- Produtos --- */
+        .products-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; 
+            margin-top: 40px;
+        }
+        .product-card {
+            background: white; border-radius: 12px; overflow: hidden;
+            box-shadow: var(--shadow); transition: 0.3s; border: 1px solid #eee;
+            display: flex; flex-direction: column;
+        }
+        .product-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        
+        .product-img { height: 250px; width: 100%; object-fit: cover; }
+        
+        .product-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-title { font-size: 1.2rem; margin-bottom: 5px; }
+        .product-desc { font-size: 0.9rem; color: #666; margin-bottom: 15px; flex-grow: 1; }
+        .price-tag { 
+            display: block; font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 15px; 
+        }
+        
+        /* Botão produto */
+        .btn-product {
+            border: 2px solid var(--primary); color: var(--primary); background: transparent;
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 10px 20px; border-radius: 50px; font-weight: 700; width: 100%;
+            text-decoration: none; transition: 0.3s; cursor: pointer;
+            font-family: var(--font-title); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .btn-product:hover { background: var(--primary); color: white; }
+
+
+        /* --- Testemunhos --- */
+        .testimonials { background-color: var(--white); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        
+        .review-card {
+            background: var(--bg-light); padding: 30px; border-radius: 12px;
+            position: relative;
+        }
+        .stars { color: #FFD700; margin-bottom: 10px; display: block; }
+        .client-name { font-weight: 700; margin-top: 15px; display: block; color: var(--primary-dark); }
+
+        /* --- FAQ --- */
+        .faq-container { max-width: 800px; margin: 0 auto; margin-top: 40px; }
+        details {
+            background: white; margin-bottom: 10px; border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        summary {
+            padding: 20px; cursor: pointer; font-weight: 600;
+            display: flex; justify-content: space-between; align-items: center; list-style: none;
+        }
+        summary::after { content: '+'; font-size: 1.5rem; color: var(--primary); }
+        details[open] summary::after { content: '-'; }
+        .faq-ans { padding: 0 20px 20px 20px; color: #555; }
+
+        /* --- Mapa & Footer --- */
+        .map-box { height: 400px; width: 100%; border-radius: 12px; overflow: hidden; margin-top: 30px; box-shadow: var(--shadow); }
+        footer { background: var(--text-dark); color: #aaa; text-align: center; padding: 60px 0 40px 0; }
+        .footer-info p { margin-bottom: 10px; }
+
+        /* --- Botão Flutuante --- */
+        .float-wa {
+            position: fixed; bottom: 25px; right: 25px;
+            background: var(--accent); color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 2000; transition: 0.3s; animation: pulse 2s infinite;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+.wa-badge {
+            position: absolute; 
+            top: -5px; 
+            right: -5px;
+            background: red; 
+            color: white; 
+            font-size: 11px; 
+            font-weight: bold;
+            width: 22px; 
+            height: 22px; 
+            border-radius: 50%;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            border: 2px solid white;
+            z-index: 10;
+        }
+
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .brands-grid { gap: 20px; }
+            .brand-item { font-size: 1.2rem; }
+            header { height: auto; padding: 120px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        👓 Promoção do Mês: Lentes Monofocais prontas em 1 hora!
+    </div>
+
+    <header>
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container" style="position: relative; z-index: 3;">
+            <h1 class="hero-title">A Sua Nova Visão Começa Aqui.<br>Qualidade e Rapidez em Lisboa.</h1>
+            <p class="hero-subtitle">Armações de design, lentes de alta tecnologia e laboratório próprio. Venha visitar-nos na Avenida da Liberdade.</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" onclick="openWhatsapp('Cita')" class="btn btn-primary">
+                    📅 Marcar Consulta
+                </a>
+                <a href="#catalogo" class="btn btn-outline">
+                    Ver Armações
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="brands-bar">
+        <div class="container">
+            <p class="text-center" style="margin-bottom: 15px; font-size: 0.9rem; color: #999; text-transform: uppercase;">Trabalhamos com as melhores marcas</p>
+            <div class="brands-grid">
+                <span class="brand-item">VARILUX</span>
+                <span class="brand-item">ZEISS</span>
+                <span class="brand-item">HOYA</span>
+                <span class="brand-item">RAY-BAN</span>
+                <span class="brand-item">TRANSITIONS</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center">Porquê escolher a Ótica Vision?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚡</span>
+                    <h3>Entrega Expresso</h3>
+                    <p>Laboratório próprio. Os seus óculos monofocais podem ficar prontos no próprio dia (mediante stock).</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">👓</span>
+                    <h3>Consultoria de Imagem</h3>
+                    <p>A nossa equipa ajuda-o a escolher a armação que melhor se adapta ao seu rosto e estilo.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🛡️</span>
+                    <h3>Garantia Total</h3>
+                    <p>Garantia de adaptação em progressivos e 2 anos de garantia contra defeitos de fabrico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="catalogo" style="background: white;">
+        <div class="container">
+            <h2 class="text-center">Destaques da Coleção</h2>
+            <p class="text-center" style="color: #666;">Modelos selecionados a preços de fábrica.</p>
+            
+            <div id="products-grid" class="products-grid">
+                </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#" onclick="openWhatsapp('Catalogo')" class="btn btn-primary">
+                    Ver Catálogo Completo pelo WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding testimonials">
+        <div class="container">
+            <h2 class="text-center">Opiniões dos Clientes</h2>
+            <div class="testimonial-grid">
+                <div class="review-card">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <p>"Fizeram os meus óculos graduados em 1 hora. Salvaram a minha viagem de trabalho. Preço muito competitivo."</p>
+                    <span class="client-name">Ricardo L.</span>
+                </div>
+                <div class="review-card">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <p>"O atendimento é excelente. Tiveram muita paciência para eu provar 20 armações até encontrar a perfeita."</p>
+                    <span class="client-name">Fernanda M.</span>
+                </div>
+                <div class="review-card">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <p>"Uso progressivos Varilux e ficaram perfeitos à primeira. A adaptação foi imediata. Muito recomendáveis."</p>
+                    <span class="client-name">D. Maria</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: var(--bg-light);">
+        <div class="container faq-container">
+            <h2 class="text-center" style="margin-bottom: 30px;">Perguntas Frequentes</h2>
+            
+            <details>
+                <summary>Fazem consultas de optometria?</summary>
+                <div class="faq-ans">Sim! Temos gabinete de optometria. A consulta é gratuita na compra dos seus óculos.</div>
+            </details>
+            <details>
+                <summary>Quais são as formas de pagamento?</summary>
+                <div class="faq-ans">Aceitamos Multibanco, MB Way, Numerário e Cartão de Crédito.</div>
+            </details>
+            <details>
+                <summary>Quanto tempo demoram os óculos?</summary>
+                <div class="faq-ans">Lentes monofocais (stock) em 1h ou 24h. Progressivos ou fabricos especiais de 3 a 7 dias.</div>
+            </details>
+            <details>
+                <summary>Arranjam óculos partidos?</summary>
+                <div class="faq-ans">Sim, fazemos ajustes, troca de plaquetas e parafusos na hora e muitas vezes sem custo.</div>
+            </details>
+        </div>
+    </section>
+
+<section class="section-padding" style="background: white;">
+        <div class="container">
+            <h2 class="text-center">Visite a Nossa Loja</h2>
+            <p class="text-center">Estamos no centro de Lisboa, fácil acesso pelo Metro Marquês de Pombal.</p>
+            
+            <div class="map-box">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.9673682031976!2d-9.146063924188281!3d38.71855817176267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933822f4dbae5%3A0xe60d9d5e62e84388!2sAv.%20da%20Liberdade%20100%2C%201250-146%20Lisboa%2C%20Portugal!5e0!3m2!1spt-BR!2ses!4v1771797846772!5m2!1spt-BR!2ses" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-info">
+            <h3 style="color:white; margin-bottom: 20px;">Ótica Vision</h3>
+            <p>📍 Avenida da Liberdade, 100 - Lisboa</p>
+            <p>🕒 Seg a Sex: 10h às 20h | Sáb: 10h às 14h</p>
+            <p>📞 (+351) 912 345 678</p>
+            <div style="margin-top: 30px; font-size: 2rem;">💳 💶</div>
+            <p style="font-size: 0.8rem; margin-top: 10px;">Aceitamos: Visa, Master, Multibanco, MB Way e Numerário.</p>
+        </div>
+    </footer>
+
+        <a href="#" onclick="openWhatsapp('Float')" class="float-wa" title="Falar no WhatsApp">
+            <div class="wa-badge">1</div>
+            <svg viewBox="0 0 24 24" width="35" height="35" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+        </a>
+
+    <script>
+        // DADOS DOS PRODUTOS (Preços em Euros e Descrições em PT-PT)
+        const products = [
+            { name: "Massa Tartaruga Clássica", price: "89,00 €", img: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500&auto=format&fit=crop", desc: "Estilo intemporal tipo Tartaruga. Combina com tudo." },
+            { name: "Metal Slim Gold", price: "110,00 €", img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&auto=format&fit=crop", desc: "Leveza e sofisticação dourada." },
+            { name: "Bold Black Acetato", price: "75,00 €", img: "boldblack.webp", desc: "Marcante e moderna. Personalidade forte." }
+        ];
+
+        // RENDERIZAR PRODUTOS
+        const productsGrid = document.getElementById('products-grid');
+        products.forEach(p => {
+            const html = `
+                <div class="product-card">
+                    <img src="${p.img}" alt="${p.name}" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">${p.name}</h3>
+                        <p class="product-desc">${p.desc}</p>
+                        <span class="price-tag">${p.price}</span>
+                        <a href="#" onclick="openWhatsapp('Produto: ${p.name}')" class="btn btn-product">Reservar</a>
+                    </div>
+                </div>
+            `;
+            productsGrid.innerHTML += html;
+        });
+
+        // FUNÇÃO WHATSAPP (PT-PT)
+        const phone = "351912345678"; // CÓDIGO DE PAÍS +351
+
+        function openWhatsapp(interest) {
+            let msg = "";
+            if(interest === 'Cita') msg = "Olá! Gostava de marcar uma consulta de optometria.";
+            else if(interest === 'Catalogo') msg = "Olá! Gostava de ver o catálogo completo de armações.";
+            else if(interest === 'Float') msg = "Olá! Tenho uma dúvida sobre os vossos serviços.";
+            else msg = `Olá! Estou interessado no modelo *${interest}*. Ainda está disponível?`;
+
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcenaria Tradição | Móveis por Medida de Alta Qualidade</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. Variáveis de Design --- */
+        :root {
+            --wood-dark: #2C1B18; /* Madeira nobre escura */
+            --wood-medium: #5D4037;
+            --wood-light: #A1887F;
+            --bg-light: #FAFAFA;
+            --bg-section: #F5F5F5;
+            --text-main: #333333;
+            --white: #FFFFFF;
+            --gold: #C5A059; /* Toque de luxo */
+            --green-whatsapp: #25D366;
+            
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Lato', sans-serif;
+            
+            --shadow: 0 15px 30px rgba(0,0,0,0.05);
+            --radius: 6px;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-title); line-height: 1.2; color: var(--wood-dark); }
+        img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        a { text-decoration: none; }
+
+        /* --- Utilitários --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .text-center { text-align: center; }
+        section { padding: 80px 0; }
+
+        /* --- Barra de Urgência --- */
+        .top-bar {
+            background-color: var(--wood-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 8px;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* --- Botões --- */
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--gold);
+            color: #fff;
+            padding: 16px 35px;
+            border-radius: var(--radius);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-cta:hover {
+            background-color: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--wood-dark);
+            color: var(--wood-dark);
+            padding: 14px 30px;
+            border-radius: var(--radius);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: var(--transition);
+        }
+        .btn-outline:hover { background: var(--wood-dark); color: var(--white); }
+
+        /* --- HERO SECTION --- */
+        header {
+            height: 90vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.65)),
+                        url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content { max-width: 850px; padding: 20px; z-index: 2; }
+        
+        .badge {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(5px);
+            padding: 5px 15px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        header h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 20px; 
+            color: #FFFFFF !important;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.9);
+        }
+        header p {
+            color: #FFFFFF !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* --- AUTHORITY BAR --- */
+        .authority-bar {
+            background: var(--white);
+            padding: 40px 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 3;
+            box-shadow: var(--shadow);
+            border-bottom: 3px solid var(--gold);
+        }
+        .authority-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+            max-width: 1000px; margin: 0 auto;
+        }
+        .authority-item { text-align: center; border-right: 1px solid #eee; }
+        .authority-item:last-child { border-right: none; }
+        .authority-item span { display: block; font-size: 2rem; font-weight: 700; color: var(--wood-dark); font-family: var(--font-title); }
+        .authority-item p { font-size: 0.9rem; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- PROCESSO (TIMELINE) --- */
+        .process { background-color: var(--white); }
+        .section-header { margin-bottom: 60px; text-align: center; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section-header p { color: #666; max-width: 600px; margin: 0 auto; }
+        .separator { width: 50px; height: 3px; background: var(--gold); margin: 20px auto; }
+
+        .process-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;
+        }
+        .process-card {
+            padding: 30px; background: var(--bg-section); border-radius: var(--radius);
+            position: relative; transition: var(--transition);
+        }
+        .process-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .step-number {
+            font-size: 4rem; font-family: var(--font-title); color: rgba(197, 160, 89, 0.2);
+            position: absolute; top: 10px; right: 20px; font-weight: 700;
+        }
+        .process-card h3 { font-size: 1.3rem; margin-bottom: 10px; position: relative; z-index: 2; }
+        .process-card p { font-size: 0.9rem; color: #666; position: relative; z-index: 2; }
+
+        /* --- GALERIA --- */
+        .gallery { padding: 0; }
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        }
+        .gallery-item {
+            height: 400px; position: relative; overflow: hidden;
+        }
+        .gallery-item img { transition: transform 0.6s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        
+        .overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 30px;
+            opacity: 0; transition: 0.4s;
+        }
+        .gallery-item:hover .overlay { opacity: 1; }
+        .overlay h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 5px; }
+        .overlay p { color: var(--white); font-size: 0.9rem; }
+
+        /* --- FAQ --- */
+        .faq { background-color: var(--bg-section); }
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        
+        details {
+            background: var(--white); margin-bottom: 15px; border-radius: var(--radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        summary {
+            padding: 20px; cursor: pointer; font-weight: 700; list-style: none;
+            display: flex; justify-content: space-between; align-items: center; color: var(--wood-dark);
+        }
+        summary::after { content: '+'; font-size: 1.5rem; color: var(--gold); }
+        details[open] summary::after { content: '-'; }
+        .faq-answer { padding: 0 20px 20px 20px; color: #555; font-size: 0.95rem; }
+
+        /* --- PROVA SOCIAL --- */
+        .testimonials { background-color: var(--white); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .review-card {
+            background: var(--bg-light); padding: 30px; border-radius: var(--radius);
+            border-left: 4px solid var(--gold); position: relative;
+        }
+        .stars { color: var(--gold); margin-bottom: 15px; display: block; }
+        .client-name { display: block; margin-top: 15px; font-weight: 700; color: var(--wood-dark); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--wood-dark); color: #ccc; padding: 60px 0 30px 0; text-align: center; }
+        footer h3 { color: var(--white); font-size: 1.8rem; margin-bottom: 20px; }
+        footer p { margin-bottom: 10px; font-size: 0.95rem; }
+        
+        /* --- BOTÃO FLUTUANTE --- */
+        .btn-float {
+            position: fixed; bottom: 25px; right: 25px;
+            background: var(--green-whatsapp); color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 100; transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        .btn-float:hover { transform: scale(1.1); }
+        .wa-badge {
+            position: absolute; top: -5px; right: -5px;
+            background: red; color: white; font-size: 11px; font-weight: bold;
+            width: 22px; height: 22px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid white;
+            z-index: 10;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+        
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .authority-grid { grid-template-columns: 1fr; gap: 30px; }
+            .authority-item { border-right: none; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+            .authority-item:last-child { border-bottom: none; }
+            .authority-bar { padding: 30px 20px; margin-top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        📅 Agenda de 2026 aberta! Garanta o seu projeto com os valores atuais.
+    </div>
+
+    <header>
+        <div class="hero-content reveal">
+            <span class="badge">Marcenaria de Alta Qualidade</span>
+            <h1>Móveis por Medida Entregues <br><span style="color:var(--gold);">Rigorosamente no Prazo</span></h1>
+            <p>Acabamento impecável, garantia em contrato e o projeto 3D dos seus sonhos. Não arrisque a sua remodelação com amadores.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" onclick="openWhatsapp('Planta')" class="btn-cta">📐 Enviar Planta/Medidas</a>
+                <a href="#portfolio" class="btn-outline" style="border-color: #fff; color: #fff;">Ver Projetos</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="authority-bar reveal">
+            <div class="authority-grid">
+                <div class="authority-item">
+                    <span>50+</span>
+                    <p>Anos de Tradição</p>
+                </div>
+                <div class="authority-item">
+                    <span>2.000+</span>
+                    <p>Lares Transformados</p>
+                </div>
+                <div class="authority-item">
+                    <span>5 Anos</span>
+                    <p>Garantia Alargada</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="process">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Como Funciona?</h2>
+                <div class="separator"></div>
+                <p>O nosso processo é transparente para que tenha tranquilidade do início ao fim.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card reveal">
+                    <span class="step-number">01</span>
+                    <h3>Contacto Inicial</h3>
+                    <p>Envia-nos a planta, medidas ou a sua ideia pelo WhatsApp.</p>
+                </div>
+                <div class="process-card reveal">
+                    <span class="step-number">02</span>
+                    <h3>Pré-Orçamento</h3>
+                    <p>Enviamos uma estimativa de valor e agendamos a visita técnica.</p>
+                </div>
+                <div class="process-card reveal">
+                    <span class="step-number">03</span>
+                    <h3>Projeto 3D</h3>
+                    <p>Apresentamos o projeto visual para aprovar cada detalhe.</p>
+                </div>
+                <div class="process-card reveal">
+                    <span class="step-number">04</span>
+                    <h3>Fabrico & Entrega</h3>
+                    <p>Produzimos e instalamos no prazo combinado em contrato.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#" onclick="openWhatsapp('Visita')" class="btn-cta">Agendar Visita Técnica</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery" id="portfolio">
+        <div class="gallery-grid">
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1000&auto=format&fit=crop" alt="Cozinha por Medida">
+                <div class="overlay">
+                    <h3>Cozinhas Gourmet</h3>
+                    <p>Funcionalidade e beleza para o coração da casa.</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?q=80&w=1000&auto=format&fit=crop" alt="Quarto">
+                <div class="overlay">
+                    <h3>Quartos & Closets</h3>
+                    <p>Aproveitamento total de espaço e conforto.</p>
+                </div>
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1000&auto=format&fit=crop" alt="Home Office">
+                <div class="overlay">
+                    <h3>Escritórios & Salas</h3>
+                    <p>Design moderno para trabalhar e relaxar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>O que os nossos clientes dizem</h2>
+                <div class="separator"></div>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="review-card reveal">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <p>"Já tive muitas dores de cabeça com marceneiros, mas a Tradição foi impecável. Entregaram 2 dias antes do prazo e deixaram tudo limpo."</p>
+                    <span class="client-name">Mariana Souza</span>
+                </div>
+                <div class="review-card reveal">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <p>"O acabamento é de outro nível. As portas com amortecimento fazem toda a diferença. Valeu cada cêntimo."</p>
+                    <span class="client-name">Dr. Roberto Campos</span>
+                </div>
+                <div class="review-card reveal">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <p>"Fizeram a minha cozinha e o quarto do bebé. Atendimento nota 10, desde o projeto 3D até à instalação."</p>
+                    <span class="client-name">Fernanda Lima</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container faq-container reveal">
+            <div class="section-header">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+            
+            <details>
+                <summary>Qual é o prazo de entrega?</summary>
+                <div class="faq-answer">O nosso prazo médio é de 30 a 45 dias úteis após a aprovação final do projeto executivo. Tudo estipulado em contrato com penalização por atraso.</div>
+            </details>
+            <details>
+                <summary>Que materiais utilizam?</summary>
+                <div class="faq-answer">Trabalhamos exclusivamente com 100% MDF de marcas certificadas e ferragens reforçadas com amortecimento.</div>
+            </details>
+            <details>
+                <summary>Fazem o projeto 3D?</summary>
+                <div class="faq-answer">Sim! Desenvolvemos um projeto 3D realista para que possa visualizar exatamente como ficará o ambiente antes de avançarmos para o fabrico.</div>
+            </details>
+            <details>
+                <summary>Quais são as formas de pagamento?</summary>
+                <div class="faq-answer">Aceitamos entrada + pagamento faseado por Transferência Bancária, MB Way ou Cartão de Crédito.</div>
+            </details>
+            <details>
+                <summary>Em que zona trabalham?</summary>
+                <div class="faq-answer">Atendemos toda a zona da Grande Lisboa e região metropolitana (raio de 50km).</div>
+            </details>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Marcenaria Tradição</h3>
+            <p>📍 Rua da Madeira, 123 - Zona Industrial - Lisboa</p>
+            <p>🕒 Seg a Sex: 08h às 18h | Sáb: 08h às 12h</p>
+            <p>📞 +351 912 345 678</p>
+            <div style="margin-top: 30px; font-size: 0.8rem; border-top: 1px solid #444; padding-top: 20px;">
+                &copy; 2026 Marcenaria Tradição. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" onclick="openWhatsapp('Float')" class="btn-float" aria-label="Falar no WhatsApp">
+        <div class="wa-badge">1</div>
+        <svg viewBox="0 0 24 24" width="35" height="35" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        // --- CONFIGURAÇÃO ---
+        const numeroWhatsApp = "351912345678"; // CÓDIGO DE PAÍS +351 PARA PORTUGAL
+
+        function openWhatsapp(origem) {
+            let msg = "";
+            
+            if(origem === 'Planta') {
+                msg = "Olá! Tenho a planta/medidas e gostava de pedir um orçamento.";
+            } else if(origem === 'Visita') {
+                msg = "Olá! Gostava de agendar uma visita técnica para tirar medidas.";
+            } else {
+                msg = "Olá! Vi o site e gostava de saber mais sobre móveis por medida.";
+            }
+
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+
+        // Animação de Scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

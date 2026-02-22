@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clara Vieira | Manicure Brasileira & Nail Academy no Porto</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variáveis de Design --- */
+        :root {
+            --bg-body: #FAFAF8; 
+            --bg-card: #FFFFFF;
+            --primary-color: #B58371; 
+            --primary-hover: #9E6F5E;
+            --secondary-dark: #3A3533; 
+            --text-main: #5C5552;
+            --accent-gold: #D4AF37;
+            --whatsapp: #25D366;
+            
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            
+            --shadow: 0 10px 30px rgba(181, 131, 113, 0.08);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        h1, h2, h3 { font-family: var(--font-title); color: var(--secondary-dark); font-weight: 600; line-height: 1.2; }
+        img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        a { text-decoration: none; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .text-center { text-align: center; }
+        section { padding: 80px 0; }
+
+        /* --- Top Bar --- */
+        .top-bar { background-color: var(--secondary-dark); color: #fff; text-align: center; padding: 10px; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; position: sticky; top: 0; z-index: 1000; }
+        .top-bar span { font-weight: 600; color: var(--primary-color); }
+
+        /* --- Botões --- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 16px 36px; border-radius: 50px; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;
+            transition: var(--transition); border: none; cursor: pointer; font-family: var(--font-body); gap: 8px;
+        }
+        .btn-primary { background-color: var(--primary-color); color: #fff; box-shadow: 0 5px 20px rgba(181, 131, 113, 0.4); }
+        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
+        .btn-outline { border: 1px solid var(--primary-color); color: var(--primary-color); background: transparent; }
+        .btn-outline:hover { background: var(--primary-color); color: #fff; }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative; min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center;
+            background: linear-gradient(rgba(250, 250, 248, 0.85), rgba(250, 250, 248, 0.7)), url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        @media (max-width: 768px) { .hero { background-attachment: scroll; } }
+        .hero-content { max-width: 800px; padding: 20px; z-index: 2; }
+        .badge { border: 1px solid var(--primary-color); color: var(--primary-color); padding: 5px 15px; border-radius: 30px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; display: inline-block; background: rgba(255,255,255,0.7); font-weight: 600;}
+        .hero h1 { font-size: 3.8rem; margin-bottom: 20px; }
+        .hero h1 i { font-style: italic; color: var(--primary-color); }
+        .hero p { font-size: 1.15rem; margin-bottom: 30px; max-width: 650px; margin-left: auto; margin-right: auto; }
+        .social-proof-hero { font-size: 0.85rem; margin-top: 20px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--secondary-dark); }
+        .stars-mini { color: var(--accent-gold); letter-spacing: 2px; }
+
+        /* --- Portfólio (NOVO) --- */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 40px; }
+        .portfolio-item { height: 300px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+        .portfolio-item img { transition: transform 0.5s ease; }
+        .portfolio-item:hover img { transform: scale(1.05); }
+
+        /* --- Diferenciais & Garantia --- */
+        .features { background-color: #fff; padding: 60px 0; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; text-align: center; }
+        .feat-icon { font-size: 2.2rem; margin-bottom: 15px; display: block; }
+        .features-grid h3 { font-size: 1.2rem; margin-bottom: 10px; font-family: var(--font-body); }
+        .guarantee-box { background: rgba(181, 131, 113, 0.1); border: 1px dashed var(--primary-color); border-radius: var(--radius); padding: 20px; text-align: center; margin-top: 50px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .guarantee-box h4 { color: var(--primary-color); margin-bottom: 5px; font-family: var(--font-body); }
+
+        /* --- Sobre a Clara (NOVO) --- */
+        .about-section { background-color: var(--bg-body); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-img { border-radius: var(--radius); border-bottom: 8px solid var(--primary-color); border-left: 8px solid var(--primary-color); }
+
+        /* --- Serviços --- */
+        .services-section { background-color: #fff; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 50px; }
+        .service-card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); border: 1px solid #f0f0f0; display: flex; flex-direction: column; }
+        .service-img { height: 250px; }
+        .service-body { padding: 30px; text-align: center; display: flex; flex-direction: column; flex-grow: 1; }
+        .service-body h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .service-body p { font-size: 0.95rem; margin-bottom: 25px; flex-grow: 1; }
+
+        /* --- Academy (B2B) --- */
+        .academy-section { background-color: var(--secondary-dark); color: #fff; border-radius: 40px 40px 0 0; }
+        .academy-section h2, .academy-section h3, .academy-section p { color: #fff; }
+        .academy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .academy-img { border-radius: var(--radius); opacity: 0.9; }
+        .check-list { list-style: none; margin: 20px 0 30px; }
+        .check-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-weight: 300; }
+        .check-list li::before { content: '✔'; color: var(--secondary-dark); background: var(--primary-color); width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; border-radius: 50%; font-size: 0.7rem; font-weight: bold;}
+
+        /* --- Depoimentos --- */
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
+        .review-card { background: var(--bg-card); padding: 40px 30px; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 3px solid var(--primary-color); }
+        .stars { color: var(--accent-gold); margin-bottom: 15px; display: block; font-size: 1.1rem; letter-spacing: 2px; }
+        .review-text { font-size: 0.95rem; font-style: italic; margin-bottom: 20px; }
+        .client-info { display: flex; align-items: center; gap: 15px; }
+        .client-info img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+        .client-info h4 { font-size: 1rem; margin: 0; font-family: var(--font-body); }
+        .client-info span { font-size: 0.8rem; color: var(--primary-color); text-transform: uppercase; font-weight: 600; }
+
+        /* --- FAQ --- */
+        details { background: #fff; margin-bottom: 15px; border-radius: var(--radius); padding: 5px; box-shadow: var(--shadow); border: 1px solid #f0f0f0; }
+        summary { padding: 20px; cursor: pointer; font-weight: 500; color: var(--secondary-dark); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '+'; color: var(--primary-color); font-size: 1.5rem; }
+        details[open] summary::after { content: '-'; }
+        .faq-answer { padding: 0 20px 20px; font-size: 0.95rem; }
+
+        /* --- Footer & WhatsApp --- */
+        footer { text-align: center; padding: 60px 0 40px; background-color: #fff; }
+        
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--whatsapp); color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000; transition: var(--transition);
+            animation: pulse 2s infinite; text-decoration: none;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+        .wa-badge {
+            position: absolute; top: -5px; right: -5px;
+            background: #FF3B30; color: white; font-size: 11px; font-weight: bold;
+            width: 22px; height: 22px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid white;
+        }
+        .wa-tooltip {
+            position: absolute; right: 75px; background: #fff; color: var(--secondary-dark);
+            padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;
+            box-shadow: var(--shadow); white-space: nowrap; pointer-events: none;
+            opacity: 0; transition: 0.3s; transform: translateX(10px);
+        }
+        .float-wa:hover .wa-tooltip { opacity: 1; transform: translateX(0); }
+
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .about-grid, .academy-grid { grid-template-columns: 1fr; }
+            .about-img { order: -1; }
+            .wa-tooltip { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        ✨ Últimas vagas para a semana no Porto. <span>Garanta o seu horário.</span>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="badge">Nail Studio Exclusivo</span>
+            <h1>A Arte da <i>Naturalidade</i> nas Suas Mãos</h1>
+            <p>Especialista em Manicure Brasileira e unhas de gel com aspeto 100% natural, resistente e elegante no coração do Porto.</p>
+            
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#" onclick="openWhatsapp('Agendamento')" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Agendar Horário
+                </a>
+                <a href="#academy" class="btn btn-outline">Sou Profissional</a>
+            </div>
+            
+            <div class="social-proof-hero">
+                <span class="stars-mini">★★★★★</span> Mais de 1.000 clientes satisfeitas
+            </div>
+        </div>
+    </header>
+
+    <section class="container" style="padding-top: 60px; padding-bottom: 20px;">
+        <div class="text-center">
+            <h2 style="font-size: 2rem;">O Fim das Unhas Grossas e Artificiais</h2>
+            <p>Veja a delicadeza e perfeição da nossa técnica.</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="naturais.jpeg" alt="Unhas naturais"></div>
+            <div class="portfolio-item"><img src="unhagel.jpeg" alt="Unhas de gel perfeitas"></div>
+            <div class="portfolio-item"><img src="manicure.jpeg" alt="Manicure"></div>
+            <div class="portfolio-item"><img src="decorativas.webp" alt="Detalhe unhas"></div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div>
+                    <span class="feat-icon">🇧🇷</span>
+                    <h3>Método Brasileiro</h3>
+                    <p>Cutilagem profunda e esmaltação perfeita junto à raiz. Acabamento luxuoso.</p>
+                </div>
+                <div>
+                    <span class="feat-icon">🛡️</span>
+                    <h3>Higiene Absoluta</h3>
+                    <p>Todos os materiais são esterilizados em autoclave, garantindo a sua saúde.</p>
+                </div>
+                <div>
+                    <span class="feat-icon">💎</span>
+                    <h3>Maior Durabilidade</h3>
+                    <p>Produtos premium que evitam levantamentos. Unhas intactas por semanas.</p>
+                </div>
+            </div>
+
+            <div class="guarantee-box">
+                <h4>✨ Garantia de 7 Dias</h4>
+                <p>Confiamos tanto na nossa técnica que, se o seu verniz ou gel lascar nos primeiros 7 dias por motivos naturais, <strong>arranjamos sem qualquer custo</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="container about-grid">
+            <div>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Prazer, Clara Vieira.</h2>
+                <p style="margin-bottom: 15px;">Sou apaixonada por elevar a autoestima das mulheres através dos detalhes. Trouxe para o Porto o rigor e a excelência da Manicure Brasileira.</p>
+                <p style="margin-bottom: 25px;">Acredito que o cuidado com as unhas não é futilidade, é um momento de autocuidado, de pausa na rotina. O meu objetivo não é apenas deixar as suas unhas bonitas, mas sim saudáveis, naturais e resistentes.</p>
+                <a href="#" onclick="openWhatsapp('Agendamento')" class="btn btn-outline">Falar com a Clara</a>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=800&auto=format&fit=crop" alt="Clara Vieira Especialista" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <div class="text-center">
+                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Os Nossos Serviços</h2>
+                <p>Técnicas modernas para quem exige perfeccionismo.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop" alt="Blindagem">
+                    </div>
+                    <div class="service-body">
+                        <h3>Blindagem & Gel</h3>
+                        <p>Proteção resistente para unhas naturais ou extensão em gel mantendo uma espessura fina e elegante. Ideal para quem quer durabilidade sem o aspeto "grosso".</p>
+                        <a href="#" onclick="openWhatsapp('Preços')" class="btn btn-primary" style="width: 100%; margin-top: auto;">Ver Tabela e Agendar</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="manicure.jpeg" alt="Manicure">
+                    </div>
+                    <div class="service-body">
+                        <h3>Manicure & Pedicure Premium</h3>
+                        <p>A verdadeira experiência brasileira. Remoção cuidadosa das cutículas, hidratação profunda e esmaltação perfeita (verniz normal ou gel).</p>
+                        <a href="#" onclick="openWhatsapp('Agendamento')" class="btn btn-primary" style="width: 100%; margin-top: auto;">Reservar Horário</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="academy-section" id="academy">
+        <div class="container academy-grid">
+            <div>
+                <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?q=80&w=800&auto=format&fit=crop" alt="Formação Nail Design" class="academy-img">
+            </div>
+            <div>
+                <span class="badge" style="border-color: #fff; color: var(--secondary-dark); background: #fff;">Para Profissionais</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Clara Academy: Destaque-se na sua carreira.</h2>
+                <p style="font-weight: 300; margin-bottom: 20px;">Tem dificuldade com o descolamento do gel? Demora muito tempo por cliente? A nossa mentoria transforma profissionais comuns em especialistas reconhecidas (e bem pagas).</p>
+                
+                <ul class="check-list">
+                    <li>Segredos da Naturalidade e Retenção sem quebras.</li>
+                    <li>Otimização do Tempo de Mesa (ganhe agilidade).</li>
+                    <li>Mentoria VIP Individual para foco total nas suas dificuldades.</li>
+                </ul>
+
+                <a href="#" onclick="openWhatsapp('Formação')" class="btn btn-outline" style="border-color: #fff; color: #fff; margin-top: 15px;">Quero Evoluir na Profissão</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="padding-top: 80px; padding-bottom: 80px;">
+        <div class="text-center">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Quem senta na nossa mesa, aprova.</h2>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <span class="stars">★★★★★</span>
+                <p class="review-text">"Nunca tive um gel tão fino e natural! Parecem as minhas unhas, mas super resistentes. O ambiente do estúdio é maravilhoso, recomendo de olhos fechados."</p>
+                <div class="client-info">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&auto=format&fit=crop" alt="Sofia">
+                    <div>
+                        <h4>Sofia Marques</h4>
+                        <span>Cliente Fiel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <span class="stars">★★★★★</span>
+                <p class="review-text">"Não tenho palavras. Ensinamento incrível... orgulho de dizer que é a minha mentora. Precisa de elevar a sua segurança como profissional? Faça a formação com a Clara."</p>
+                <div class="client-info">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop" alt="Joana">
+                    <div>
+                        <h4>Joana Rodrigues</h4>
+                        <span>Aluna VIP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #fff;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 class="text-center" style="font-size: 2.2rem; margin-bottom: 40px;">Dúvidas Frequentes</h2>
+                
+                <details>
+                    <summary>Quanto tempo demora o serviço?</summary>
+                    <div class="faq-answer">Trabalhamos com excelência e sem pressa para garantir um acabamento perfeito. Um serviço de unhas de gel demora em média 1h30 a 2h. Aproveite este tempo para relaxar connosco!</div>
+                </details>
+                <details>
+                    <summary>A técnica estraga a unha natural?</summary>
+                    <div class="faq-answer">Absolutamente não. O dano ocorre quando há má preparação ou remoção forçada em casa. Os nossos produtos são de alta qualidade e a nossa técnica respeita a saúde da sua unha.</div>
+                </details>
+                <details>
+                    <summary>Qual a durabilidade das unhas de gel?</summary>
+                    <div class="faq-answer">Garantimos uma durabilidade média de 3 a 4 semanas sem lascar, dependendo do ritmo de crescimento natural da sua unha e dos cuidados diários.</div>
+                </details>
+                <details>
+                    <summary>Faz remoção de trabalho feito noutro espaço?</summary>
+                    <div class="faq-answer">Sim, fazemos a remoção segura de material anterior para que possamos iniciar o nosso trabalho de forma limpa e com garantia de qualidade. Pode ter um pequeno custo adicional (consultar tabela).</div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2 style="font-family: var(--font-title); color: var(--secondary-dark); margin-bottom: 10px;">Clara Vieira</h2>
+            <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 20px;">Nail Studio & Academy</p>
+            <p>📍 Porto, Portugal</p>
+            <p>Atendimentos e Formações exclusivos mediante marcação.</p>
+            <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">© 2024 Clara Vieira Studio. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="#" onclick="openWhatsapp('Float')" class="float-wa" title="Falar no WhatsApp">
+        <div class="wa-badge">1</div>
+        <div class="wa-tooltip">Agendar Horário ✨</div>
+        <svg viewBox="0 0 24 24" width="35" height="35" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        function openWhatsapp(interesse) {
+            // Substitua pelo número real da clínica
+            const telefone = "351912345678"; 
+            let mensagem = "";
+            
+            if(interesse === 'Formação') {
+                mensagem = "Olá Clara! Sou profissional e gostava de receber mais informações e valores sobre a Mentoria/Formação VIP.";
+            } else if(interesse === 'Preços') {
+                mensagem = "Olá Clara! Pode enviar-me a vossa tabela de preços dos serviços de unhas?";
+            } else if(interesse === 'Agendamento') {
+                mensagem = "Olá Clara! Gostava de saber quais os horários disponíveis para marcar as minhas unhas esta semana.";
+            } else {
+                mensagem = "Olá Clara! Estive a ver o site e gostava de tirar uma dúvida.";
+            }
+
+            const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

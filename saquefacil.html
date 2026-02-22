@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RB Serviços Financeiros | Dinheiro Rápido no MB Way</title>
+    <meta name="description" content="Transforme o limite do seu cartão de crédito em dinheiro na conta via MB Way. Pague em até 12 prestações com a RB Serviços Financeiros.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1261580639018597');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1261580639018597&ev=PageView&noscript=1"
+    /></noscript>
+    <style>
+        /* --- DESIGN SYSTEM 2.0 (PREMIUM & SOFT) --- */
+        :root {
+            /* Cores Principais */
+            --primary: #0F172A; /* Azul Navy Profundo */
+            --primary-light: #334155;
+            --accent: #10B981; /* Verde Menta Vibrante */
+            --accent-glow: rgba(16, 185, 129, 0.4);
+            
+            /* Fundos */
+            --bg-body: #F1F5F9;
+            --bg-glass: rgba(255, 255, 255, 0.85);
+            --bg-card: #ffffff;
+            
+            /* Textos */
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            
+            /* Shapes & Effects */
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 100px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px -5px rgba(15, 23, 42, 0.08);
+            --shadow-float: 0 20px 40px -10px rgba(16, 185, 129, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-main); 
+            background-color: var(--bg-body);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 { color: var(--primary); font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* HEADER (GLASSMORPHISM) */
+        header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            position: fixed; width: 100%; top: 0; z-index: 1000; height: 80px; display: flex; align-items: center;
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .logo-icon { background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; transform: rotate(-10deg); }
+
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; transition: var(--transition); position: relative; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--accent); transition: var(--transition); }
+        .nav-links a:hover::after { width: 100%; }
+
+        @media(max-width: 900px) { .nav-links { display: none; } }
+
+        /* STICKY BAR */
+        .sticky-bar {
+            background: var(--primary); color: #fff; text-align: center; padding: 10px; 
+            font-weight: 600; font-size: 0.85rem; letter-spacing: 0.5px;
+            position: fixed; top: 80px; width: 100%; z-index: 999;
+        }
+
+        /* BUTTONS */
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px; border-radius: var(--radius-pill); font-weight: 700; text-align: center; transition: var(--transition); cursor: pointer; border: none; font-size: 1rem; gap: 10px; }
+        .btn-primary { background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; box-shadow: 0 10px 20px -5px var(--accent-glow); }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px -5px var(--accent-glow); }
+        .btn-whatsapp { background: #25D366; color: white; width: 100%; border-radius: var(--radius-md); font-size: 1.1rem; box-shadow: 0 8px 20px -5px rgba(37, 211, 102, 0.4); }
+        .btn-whatsapp:hover { background-color: #1ebe57; transform: translateY(-2px); }
+
+        /* HERO SECTION */
+        #hero { padding-top: 180px; padding-bottom: 100px; display: flex; align-items: center; min-height: 100vh; overflow: hidden; position: relative; }
+        #hero::before { content: ''; position: absolute; top: -10%; right: -5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%); border-radius: 50%; z-index: -1; }
+
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .hero-text h1 { font-size: 3.5rem; margin-bottom: 24px; color: var(--primary); }
+        .hero-text h1 span { background: linear-gradient(120deg, var(--accent) 0%, #34D399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 32px; color: var(--text-muted); max-width: 90%; }
+        
+        .security-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(16, 185, 129, 0.1); color: #065F46; padding: 8px 16px; border-radius: var(--radius-pill); font-weight: 700; font-size: 0.85rem; margin-bottom: 24px; }
+        .features-list-hero li { margin-bottom: 16px; font-weight: 600; display: flex; align-items: center; gap: 12px; color: var(--text-main); }
+        .features-list-hero li i { color: var(--accent); background: rgba(16, 185, 129, 0.1); width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; }
+
+        /* SIMULATOR CARD */
+        .simulator-container { position: relative; }
+        .simulator-container::after { content: ''; position: absolute; inset: 20px; background: var(--accent); filter: blur(60px); opacity: 0.2; z-index: -1; }
+
+        .simulator-card { background: var(--bg-card); padding: 48px 40px; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); border: 1px solid rgba(255,255,255,0.5); position: relative; z-index: 10; }
+        .simulator-card h3 { margin-bottom: 24px; text-align: center; font-size: 1.5rem; color: var(--primary); }
+        
+        .card-brands { text-align: center; margin-bottom: 32px; color: var(--text-muted); font-size: 0.85rem; background: #F8FAFC; padding: 10px; border-radius: var(--radius-md); }
+        .card-brands i { margin: 0 10px; font-size: 1.8rem; transition: 0.3s; opacity: 0.6; }
+        .card-brands i:hover { opacity: 1; color: var(--primary); }
+
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 10px; font-weight: 700; font-size: 0.9rem; color: var(--text-main); }
+        .input-wrapper { position: relative; }
+        .input-wrapper i { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.1rem; transition: 0.3s; }
+        
+        .input-group input, .input-group select { width: 100%; padding: 16px 16px 16px 50px; border: 2px solid #E2E8F0; border-radius: var(--radius-md); font-size: 1.05rem; font-weight: 600; outline: none; transition: var(--transition); background: #F8FAFC; color: var(--text-main); font-family: 'Plus Jakarta Sans', sans-serif; appearance: none; }
+        .input-group select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748B'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 15px center; background-size: 20px; }
+        .input-group input:focus, .input-group select:focus { border-color: var(--accent); background: white; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1); }
+        .input-group:focus-within i { color: var(--accent); }
+        
+        /* RESULT BOX */
+        .result-box { background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); padding: 30px; border-radius: var(--radius-md); margin-top: 30px; display: none; border: 1px solid #6EE7B7; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .result-highlight { text-align: center; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px dashed rgba(16, 185, 129, 0.3); }
+        .result-highlight span { display: block; font-size: 0.85rem; color: #065F46; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        .result-highlight strong { font-size: 2.5rem; color: var(--primary); font-weight: 800; display: block; line-height: 1.1; margin-top: 5px; letter-spacing: -1px; }
+
+        .result-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-main); }
+        .result-row strong { color: var(--primary); font-weight: 700; font-size: 1.1rem; }
+        
+        .titular-alert { background-color: #fff; border-radius: var(--radius-sm); padding: 16px; margin-top: 24px; display: flex; gap: 12px; align-items: start; font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; border: 1px solid #E2E8F0; }
+        .titular-alert i { color: var(--accent); font-size: 1.2rem; margin-top: 2px; }
+        .disclaimer { font-size: 0.75rem; color: #94a3b8; margin-top: 15px; text-align: center; }
+        .max-alert { color: #EF4444; font-size: 0.8rem; margin-top: 8px; display: none; font-weight: 700; padding-left: 10px; }
+
+        /* SECTIONS */
+        section { padding: 100px 0; }
+        #vantagens { background-color: var(--bg-card); position: relative; }
+        .section-title { text-align: center; margin-bottom: 80px; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; color: var(--primary); }
+        .section-title p { color: var(--text-muted); font-size: 1.1rem; }
+        
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
+        .feature-item { background: #F8FAFC; padding: 40px 30px; border-radius: var(--radius-lg); transition: var(--transition); text-align: center; border: 1px solid transparent; }
+        .feature-item:hover { transform: translateY(-10px); background: white; box-shadow: var(--shadow-md); border-color: #E2E8F0; }
+        .feature-icon-box { width: 80px; height: 80px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px auto; box-shadow: var(--shadow-sm); font-size: 2rem; color: var(--accent); }
+        .feature-item h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary); }
+        
+        /* DEPOIMENTOS */
+        #depoimentos { background-color: var(--primary); color: #fff; border-radius: var(--radius-lg); margin: 0 20px; width: auto; max-width: 1200px; margin: 0 auto; }
+        #depoimentos h2 { color: #fff; }
+        #depoimentos p { color: #94A3B8; }
+        
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .review-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 35px; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+        .stars { color: #FBBF24; margin-bottom: 20px; font-size: 1rem; }
+        .review-text { font-style: italic; color: #E2E8F0; margin-bottom: 24px; font-size: 1rem; line-height: 1.6; }
+        .review-author strong { color: #fff; display: block; font-size: 1.1rem; }
+        
+        /* PASSOS */
+        #passos { background-color: var(--bg-body); }
+        .steps-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 60px; }
+        .step { flex: 1; min-width: 250px; text-align: center; position: relative; padding: 0 20px; }
+        .step-number { width: 64px; height: 64px; background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%); color: var(--bg-white); border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; font-weight: 800; margin: 0 auto 24px auto; box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3); transform: rotate(-5deg); transition: var(--transition); }
+        .step:hover .step-number { transform: rotate(0deg) scale(1.1); background: var(--accent); }
+        .step h3 { font-size: 1.3rem; margin-bottom: 12px; }
+        
+        /* FAQ */
+        #faq { padding: 100px 0; background: white; }
+        .faq-item { border: none; background: transparent; margin-bottom: 15px; }
+        .faq-question { padding: 24px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: var(--primary); font-size: 1.1rem; background: #F8FAFC; border-radius: var(--radius-md); transition: var(--transition); }
+        .faq-question:hover { background: #F1F5F9; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: all 0.4s ease; background: white; border: 1px solid #F1F5F9; border-top: none; border-bottom-left-radius: var(--radius-md); border-bottom-right-radius: var(--radius-md); margin-top: -5px; padding: 0 30px; opacity: 0; }
+        .faq-item.active .faq-answer { max-height: 300px; padding-top: 20px; padding-bottom: 30px; opacity: 1; }
+        .faq-icon { transition: 0.3s; color: #94a3b8; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: var(--accent); }
+        
+        /* FOOTER & FLOAT */
+        footer { background: #0F172A; color: #94a3b8; padding: 80px 0; text-align: center; font-size: 0.9rem; }
+        footer h3 { color: #fff; margin-bottom: 15px; letter-spacing: 1px; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); color: white; width: 64px; height: 64px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: var(--shadow-float); z-index: 1000; transition: var(--transition); animation: float 3s ease-in-out infinite; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); z-index: 2000; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; padding: 20px; }
+        .modal-overlay.open { display: flex; opacity: 1; }
+        .modal-container { width: 100%; max-width: 450px; position: relative; animation: modalPop 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-card-style { padding: 30px !important; margin: 0 !important; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important; }
+        .modal-close { position: absolute; top: -15px; right: -15px; width: 40px; height: 40px; background: white; border-radius: 50%; border: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.1); z-index: 20; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .modal-close:hover { background: var(--accent); color: white; transform: rotate(90deg); }
+        @keyframes modalPop { from { transform: scale(0.9) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+
+        @media (max-width: 900px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .simulator-card { padding: 30px 20px; }
+            #hero { padding-top: 130px; padding-bottom: 60px; }
+            #depoimentos { margin: 0; border-radius: 0; }
+            .step-number { width: 50px; height: 50px; font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sticky-bar">
+        🔒 Ambiente Seguro e Encriptado. Condições especiais de taxa hoje!
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+                RB<span>Serviços</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#vantagens">Vantagens</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#faq">Dúvidas</a>
+            </nav>
+            <button onclick="openModal()" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.85rem;">Simular Agora</button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="security-pill"><i class="fas fa-check-circle"></i> Sem consulta ao Banco de Portugal</div>
+                <h1>Transforme o Limite do seu Cartão em <span>Dinheiro na Conta</span>.</h1>
+                <p>Receba via MB Way em minutos e pague em até 12x no extrato do seu cartão. Sem burocracia bancária e com total segurança.</p>
+                
+                <ul class="features-list-hero">
+                    <li><i class="fas fa-bolt"></i> Dinheiro na conta em até 15 min</li>
+                    <li><i class="fas fa-shield-alt"></i> Processo 100% Online e Seguro</li>
+                    <li><i class="fas fa-plane"></i> Acumule pontos/milhas no seu cartão</li>
+                </ul>
+            </div>
+
+            <div class="simulator-container">
+                <div class="simulator-card">
+                    <h3><i class="fas fa-calculator" style="color: var(--accent);"></i> Simulação Gratuita</h3>
+                    <div class="card-brands">
+                        <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-amex"></i>
+                        <br>Aceitamos as principais redes
+                    </div>
+
+                    <form id="simulador-form" onsubmit="return false;">
+                        <div class="input-group">
+                            <label for="valor">Quanto precisa de receber?</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-euro-sign"></i>
+                                <input type="text" id="valor" placeholder="0,00 €" inputmode="numeric">
+                            </div>
+                            <div id="max-alert" class="max-alert">Valor máximo permitido: 10.000,00 €</div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Pagar em quantas prestações?</label>
+                            <div class="input-wrapper">
+                                <i class="far fa-calendar-alt"></i>
+                                <select id="parcelas">
+                                    <option value="12" selected>12x (Prestação menor)</option>
+                                    <option value="10">10x</option>
+                                    <option value="6">6x</option>
+                                    <option value="1">1x (A pronto)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box" id="resultado">
+                            <div class="result-highlight">
+                                <span>Valor Líquido a Receber</span>
+                                <strong id="valor-liquido">0,00 €</strong>
+                            </div>
+                            
+                            <div class="result-row">
+                                <span>A sua Prestação Mensal:</span>
+                                <strong id="valor-parcela">0,00 €</strong>
+                            </div>
+                            <div class="result-row">
+                                <span>Limite necessário no cartão:</span>
+                                <strong id="total-pagar" style="color: var(--text-muted);">0,00 €</strong>
+                            </div>
+
+                            <div class="titular-alert">
+                                <i class="fas fa-user-shield"></i>
+                                <span><strong>Segurança:</strong> O MB Way será enviado exclusivamente para uma conta bancária com a <strong>mesma titularidade</strong> do cartão de crédito.</span>
+                            </div>
+                            
+                            <div class="disclaimer">
+                                Taxas incluídas. Crédito sujeito à análise da entidade emissora do cartão.
+                            </div>
+
+                            <a href="#" id="btn-solicitar" target="_blank" class="btn btn-whatsapp" style="margin-top: 24px;">
+                                <i class="fab fa-whatsapp"></i> Receber Agora
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="passos">
+        <div class="container">
+            <div class="section-title"><h2>Como Funciona?</h2><p>Três passos simples para ter dinheiro na sua conta.</p></div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Simule</h3>
+                    <p>Escolha o valor que deseja receber e em quantas prestações quer pagar.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Valide</h3>
+                    <p>Fale com a nossa equipa no WhatsApp para validação de segurança.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receba</h3>
+                    <p>Após aprovação no cartão, o MB Way cai na sua conta em minutos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vantagens">
+        <div class="container">
+            <div class="section-title"><h2>Porquê escolher a RB?</h2><p>Somos especialistas em liquidez rápida e segura.</p></div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-box"><i class="fas fa-bolt"></i></div>
+                    <h3>Velocidade</h3>
+                    <p>Dinheiro na conta muito mais rápido do que num crédito bancário tradicional.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box"><i class="fas fa-lock"></i></div>
+                    <h3>Segurança Total</h3>
+                    <p><strong>Não pedimos o PIN</strong> do seu cartão. Tudo é feito via link de pagamento encriptado.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box"><i class="fas fa-percentage"></i></div>
+                    <h3>Transparência</h3>
+                    <p>Sabe exatamente quanto vai pagar e quanto vai receber. Sem surpresas.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box"><i class="fas fa-user-check"></i></div>
+                    <h3>Sem Burocracia</h3>
+                    <p>Não consultamos a lista do Banco de Portugal. Usamos apenas o limite disponível no seu cartão.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="depoimentos">
+        <div class="container">
+            <div class="section-title"><h2>Quem usou, aprovou</h2><p>Veja o que os nossos clientes dizem sobre a agilidade do serviço.</p></div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Salvou-me no final do mês! O atendimento foi super rápido e o dinheiro ficou disponível na hora. O melhor é não ser preciso dar a password a ninguém."</p>
+                    <div class="review-author"><strong>Ana P.</strong><span>Lisboa</span></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Estava com algum receio, mas a equipa explicou-me tudo. É muito seguro e prático. Recomendo a quem precisa de liquidez rápida para o negócio."</p>
+                    <div class="review-author"><strong>Carlos M.</strong><span>Porto</span></div>
+                </div>
+                <div class="review-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="review-text">"Muito melhor do que pedir um crédito ao banco e ficar à espera da análise. Usei o meu próprio limite e resolvi o problema em 10 minutos."</p>
+                    <div class="review-author"><strong>Juliana T.</strong><span>Braga</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <div class="section-title"><h2>Perguntas Frequentes</h2></div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">É seguro fazer isto? <i class="fas fa-chevron-down faq-icon"></i></div>
+                    <div class="faq-answer">Sim! Utilizamos gateways de pagamento encriptados, idênticos aos das grandes lojas online. Os seus dados estão totalmente protegidos.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Pedem o PIN/Password do cartão? <i class="fas fa-chevron-down faq-icon"></i></div>
+                    <div class="faq-answer">Jamais! Nunca pedimos a sua password, PIN ou código de segurança por telefone ou WhatsApp. Se alguém pedir, desconfie.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Preciso de ter o limite total disponível? <i class="fas fa-chevron-down faq-icon"></i></div>
+                    <div class="faq-answer">Sim, precisa de ter limite disponível no cartão para cobrir o valor que quer receber mais as taxas da operação.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Fica disponível na hora? <i class="fas fa-chevron-down faq-icon"></i></div>
+                    <div class="faq-answer">Sim! Assim que a transação é aprovada pela entidade emissora do cartão, o MB Way ou a Transferência Imediata é disparado automaticamente.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>RB Serviços Financeiros</h3>
+            <p>NIF: 500 000 000</p>
+            <p>Atendimento: Seg a Sex das 09h às 18h</p>
+            <p style="margin-top: 30px; font-size: 0.75rem;">A RB Serviços atua como intermediária de serviços e facilitadora de pagamentos.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/351912345678" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <div id="modal-simulador" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="simulator-card modal-card-style">
+                <h3><i class="fas fa-calculator" style="color: var(--accent);"></i> Simulação Rápida</h3>
+                <form onsubmit="return false;">
+                    <div class="input-group">
+                        <label>Quanto precisa?</label>
+                        <div class="input-wrapper"><i class="fas fa-euro-sign"></i><input type="text" id="modal-valor" placeholder="0,00 €" inputmode="numeric"></div>
+                    </div>
+                    <div class="input-group">
+                        <label>Prestações</label>
+                        <div class="input-wrapper"><i class="far fa-calendar-alt"></i>
+                            <select id="modal-parcelas">
+                                <option value="12" selected>12x (Prestação menor)</option>
+                                <option value="10">10x</option>
+                                <option value="6">6x</option>
+                                <option value="1">1x (A pronto)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="result-box" id="modal-resultado" style="display:block; margin-top: 15px;">
+                        <div class="result-highlight"><span>Vai receber:</span><strong id="modal-valor-liquido">0,00 €</strong></div>
+                        <div class="result-row"><span>Prestação:</span><strong id="modal-valor-parcela">0,00 €</strong></div>
+                        <a href="#" id="modal-btn-solicitar" target="_blank" class="btn btn-whatsapp" style="margin-top: 15px;"><i class="fab fa-whatsapp"></i> Receber Agora</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIGURAÇÃO ---
+        const SIMULATION_DATA = {
+            1:  { factor: 1.10 }, 
+            6:  { factor: 0.19860 },
+            10: { factor: 0.12810 },
+            12: { factor: 0.110081 } 
+        };
+        const PHONE_NUMBER = "351912345678"; 
+        const MAX_LOAN = 10000; 
+
+        // --- FUNÇÕES DE CÁLCULO PARA PORTUGAL (EUR) ---
+        function formatMoney(value) {
+            return value.toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' });
+        }
+
+        function calculate(principal, months, elements) {
+            let factor = SIMULATION_DATA[months] ? SIMULATION_DATA[months].factor : (1.05 / months); 
+            let pmt = principal * factor; 
+            let total = pmt * months;
+
+            if (elements.liquid) elements.liquid.innerText = formatMoney(principal);
+            if (elements.parcel) elements.parcel.innerText = `${months}x de ${formatMoney(pmt)}`;
+            if (elements.total) elements.total.innerText = formatMoney(total);
+
+            const msg = `👋 Olá RB! Simulação do site:\n💰 Quero: ${formatMoney(principal)}\n📅 Prestações: ${months}x de ${formatMoney(pmt)}\n💳 Total a debitar no cartão: ${formatMoney(total)}`;
+            if (elements.btn) elements.btn.href = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(msg)}`;
+            
+            if (elements.box) elements.box.style.display = 'block';
+        }
+
+        // --- SETUP SIMULADORES (MAIN & MODAL) ---
+        function setupSimulator(prefix) {
+            const input = document.getElementById(prefix + 'valor');
+            const select = document.getElementById(prefix + 'parcelas');
+            const box = document.getElementById(prefix + 'resultado'); 
+            const alert = document.getElementById('max-alert');
+
+            const elements = {
+                liquid: document.getElementById(prefix + 'valor-liquido'),
+                parcel: document.getElementById(prefix + 'valor-parcela'),
+                total: document.getElementById('total-pagar'),
+                btn: document.getElementById(prefix + 'btn-solicitar'),
+                box: box
+            };
+
+            function update() {
+                let val = Number(input.value.replace(/\D/g, '')) / 100;
+                if (prefix === '' && alert) alert.style.display = val > MAX_LOAN ? 'block' : 'none';
+                if (val > MAX_LOAN) val = MAX_LOAN;
+                
+                input.value = val.toLocaleString('pt-PT', { minimumFractionDigits: 2 });
+                
+                if (val > 0) calculate(val, parseInt(select.value), elements);
+                else if (prefix === '') box.style.display = 'none'; 
+            }
+
+            input.addEventListener('input', update);
+            select.addEventListener('change', update);
+        }
+
+        setupSimulator(''); // Main
+        setupSimulator('modal-'); // Modal
+
+        // --- UI INTERACTION ---
+        function openModal() {
+            document.getElementById('modal-simulador').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            document.getElementById('modal-simulador').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', () => {
+                const item = q.parentElement;
+                document.querySelectorAll('.faq-item').forEach(i => { if(i !== item) i.classList.remove('active'); });
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica de Estética | A Sua Beleza Elevada</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN SYSTEM PREMIUM (SOFT & CURVED) --- */
+        :root {
+            /* Paleta Boutique */
+            --primary: #BC9F8B; /* Nude / Gold Suave */
+            --primary-dark: #9A7B66;
+            --bg-dark: #2C302E; /* Charcoal elegante */
+            --bg-body: #FBFBF9; /* Off-white super limpo */
+            --bg-card: #FFFFFF;
+            --text-dark: #2A2A2A;
+            --text-muted: #7A7A7A;
+            --whatsapp: #25D366; /* Verde Oficial do WA */
+            
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+            
+            --shadow: 0 15px 40px rgba(0,0,0,0.04);
+            /* RAIO AUMENTADO: Bordas bem redondas para passar suavidade e elegância */
+            --radius: 20px; 
+            --transition: all 0.5s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--bg-body); color: var(--text-muted); line-height: 1.7; font-weight: 300;}
+
+        h1, h2, h3, h4 { font-family: var(--font-title); color: var(--text-dark); line-height: 1.2; font-weight: 400; }
+        img { max-width: 100%; display: block; object-fit: cover; }
+        a { text-decoration: none; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .text-center { text-align: center; }
+        section { padding: 100px 0; }
+
+        /* --- Top Bar --- */
+        .top-bar { background-color: var(--bg-dark); color: white; text-align: center; padding: 12px; font-size: 0.85rem; font-weight: 300; letter-spacing: 1px; text-transform: uppercase;}
+        .top-bar span { color: var(--primary); font-weight: 500; }
+
+        /* --- Botões (Arredondados) --- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 16px 40px; border-radius: 50px; /* Botão em formato pílula */
+            font-weight: 500; font-family: var(--font-body);
+            transition: var(--transition); border: 1px solid transparent; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem;
+        }
+        .btn-primary { background-color: var(--primary); color: white; box-shadow: 0 8px 25px rgba(188, 159, 139, 0.4);}
+        .btn-primary:hover { background-color: var(--bg-dark); color: white; transform: translateY(-3px);}
+        .btn-outline { border: 2px solid var(--bg-dark); color: var(--bg-dark); background: transparent; }
+        .btn-outline:hover { background: var(--bg-dark); color: white; transform: translateY(-3px); }
+
+        .microcopy { display: block; font-size: 0.8rem; margin-top: 10px; color: var(--text-muted); font-style: italic; letter-spacing: 0.5px;}
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(251,251,249,0.85), rgba(251,251,249,0.95)), 
+                        url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1920&auto=format&fit=crop'); 
+            background-size: cover; background-position: center; background-attachment: fixed;
+            padding: 120px 0; text-align: center;
+        }
+        
+        .trust-badge { display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--primary); padding-bottom: 5px; margin-bottom: 30px; font-weight: 400; color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;}
+        .trust-badge span { color: var(--primary); }
+        
+        .hero h1 { font-size: 4rem; margin-bottom: 25px; }
+        .hero h1 i { color: var(--primary); }
+        .hero p { font-size: 1.15rem; max-width: 650px; margin: 0 auto 50px; }
+
+        /* --- Sobre Nós --- */
+        .about-section { background-color: var(--bg-card); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        /* Imagem redonda e suave */
+        .about-img { border-radius: 30px 100px 30px 100px; box-shadow: var(--shadow); }
+        .signature { font-family: var(--font-title); font-size: 1.8rem; color: var(--primary); margin-top: 20px; font-style: italic;}
+
+        /* --- Serviços --- */
+        .section-header { margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.8rem; margin-bottom: 15px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .srv-card { background: var(--bg-card); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #f3f3f3; display: flex; flex-direction: column;}
+        .srv-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .srv-img { height: 280px; }
+        .srv-body { padding: 40px 30px; text-align: center; flex-grow: 1; display: flex; flex-direction: column;}
+        .srv-body h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .srv-body p { margin-bottom: 25px; flex-grow: 1;}
+
+        /* --- Antes e Depois (RESOLVIDO A PROPORÇÃO E ARREDONDAMENTO) --- */
+        .before-after { background-color: var(--bg-dark); color: white; text-align: center; }
+        .before-after h2, .before-after p { color: white; }
+        .ba-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            margin-top: 50px; 
+        }
+        .ba-card img { 
+            width: 100%; 
+            /* Esta propriedade garante que as 3 imagens ficam sempre do mesmo tamanho */
+            aspect-ratio: 4 / 5; 
+            object-fit: cover; 
+            border-radius: var(--radius); 
+            opacity: 0.85;
+            transition: var(--transition);
+        }
+        .ba-card img:hover { opacity: 1; transform: scale(1.02); }
+
+        /* --- Depoimentos --- */
+        .reviews { background-color: var(--bg-body); }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .review-card { background: var(--bg-card); padding: 40px; border-radius: var(--radius); border-top: 4px solid var(--primary); box-shadow: var(--shadow); }
+        .stars { color: var(--primary); margin-bottom: 20px; font-size: 1rem; letter-spacing: 3px;}
+        .r-text { font-style: italic; margin-bottom: 25px; color: var(--text-dark); font-size: 0.95rem; }
+        .r-author { font-weight: 500; color: var(--text-muted); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;}
+
+        /* --- FAQ & Métodos de Pagamento --- */
+        .faq-section { background-color: var(--bg-card); }
+        details { background: var(--bg-body); margin-bottom: 15px; padding: 5px 10px; border-radius: var(--radius); border: 1px solid #eee; }
+        summary { padding: 20px; cursor: pointer; font-weight: 500; color: var(--text-dark); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '+'; color: var(--primary); font-size: 1.5rem; font-weight: 300;}
+        details[open] summary::after { content: '-'; }
+        .faq-ans { padding: 0 20px 20px; font-size: 0.95rem; }
+
+        /* Pagamentos PT */
+        .payment-methods { text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid #eee;}
+        .payment-methods h4 { margin-bottom: 15px; font-family: var(--font-body); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px; color: var(--text-muted);}
+        .pay-icons { display: flex; justify-content: center; gap: 15px; font-size: 0.95rem; font-weight: 500; color: var(--bg-dark); align-items: center; flex-wrap: wrap;}
+        .pay-tag { background: var(--bg-body); padding: 10px 20px; border-radius: 50px; border: 1px solid #ddd; }
+
+        /* --- Footer & WhatsApp --- */
+        footer { background: var(--bg-dark); color: white; text-align: center; padding: 80px 0 40px; }
+        footer h2 { color: white; margin-bottom: 15px; }
+        footer p { opacity: 0.7; margin-bottom: 10px; font-size: 0.9rem;}
+        footer a { color: var(--primary); text-decoration: none; }
+
+        /* --- BOTÃO WHATSAPP PADRÃO CLÁSSICO E CHAMATIVO --- */
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--whatsapp); color: white;
+            width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            z-index: 1000; transition: var(--transition); 
+            animation: pulse 2s infinite; text-decoration: none;
+        }
+        .float-wa:hover { transform: scale(1.1); background-color: #1ebe57; }
+        .wa-badge { 
+            position: absolute; top: -5px; right: -5px; 
+            background: #FF3B30; color: white; font-size: 11px; font-weight: bold; 
+            width: 22px; height: 22px; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            border: 2px solid white; z-index: 10;
+        }
+        .wa-icon { width: 35px; height: 35px; fill: white; }
+
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        @media (max-width: 768px) { 
+            .hero h1 { font-size: 2.8rem; } 
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-img { border-radius: 20px; }
+            .wa-tooltip { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>Horário Contínuo:</span> Abertos à hora do almoço para cuidar de si.
+    </div>
+
+    <header class="hero">
+        <div class="container">
+            <div class="trust-badge">
+                <span>★★★★★</span> Excelência Comprovada no Porto
+            </div>
+            <h1>A Arte de Cuidar da <i>Sua Pele</i>.</h1>
+            <p>Tratamentos personalizados de estética avançada e laser diodo num espaço exclusivo, desenhado para o seu absoluto conforto.</p>
+            
+            <div style="text-align: center;">
+                <a href="#" onclick="openWA('Avaliação')" class="btn btn-primary">Reservar o Meu Momento</a>
+                <span class="microcopy">Avaliação personalizada sem compromisso.</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container about-grid">
+            <div>
+                <img src="https://images.pexels.com/photos/10600170/pexels-photo-10600170.jpeg?q=80&w=800&auto=format&fit=crop" alt="A Especialista" class="about-img">
+            </div>
+            <div>
+                <h2>O Seu Refúgio de Bem-Estar.</h2>
+                <p>Com anos de experiência em estética avançada, a nossa maior missão é garantir que cada cliente saia do nosso espaço com a autoestima renovada e resultados reais.</p>
+                <p>Esqueça a pressa e os tratamentos padronizados. Criamos um ambiente acolhedor onde se sente 100% à vontade para falarmos sobre as necessidades do seu rosto e corpo. Cada pele conta uma história, e nós estamos aqui para cuidar da sua.</p>
+                <div class="signature">Especialistas em Si.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" style="background: var(--bg-body);">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Protocolos de Assinatura</h2>
+                <p>Tecnologia de excelência aliada ao toque humano.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="srv-card">
+                    <img src="https://images.pexels.com/photos/7582558/pexels-photo-7582558.jpeg?q=80&w=800&auto=format&fit=crop" alt="Tratamentos Faciais" class="srv-img">
+                    <div class="srv-body">
+                        <h3>Faciais Avançados</h3>
+                        <p>Soluções rigorosas para acne, hiperpigmentação (manchas) e rejuvenescimento. Devolvemos a luminosidade natural à sua pele.</p>
+                        <a href="#" onclick="openWA('Rosto')" class="btn btn-outline" style="width: 100%;">Agendar Avaliação</a>
+                    </div>
+                </div>
+
+                <div class="srv-card">
+                    <img src="https://images.pexels.com/photos/5069508/pexels-photo-5069508.jpeg?q=80&w=800&auto=format&fit=crop" alt="Laser Diodo" class="srv-img">
+                    <div class="srv-body">
+                        <h3>Laser Diodo</h3>
+                        <p>A tecnologia mais eficaz e indolor para remoção definitiva de pelos. Conforto máximo e resultados rápidos desde a primeira sessão.</p>
+                        <a href="#" onclick="openWA('Laser')" class="btn btn-outline" style="width: 100%;">Consultar Packs</a>
+                    </div>
+                </div>
+
+                <div class="srv-card">
+                    <img src="https://www.belladona.pt/files/blp_159_g.jpg" alt="Estética e Sobrancelhas" class="srv-img">
+                    <div class="srv-body">
+                        <h3>Estética & Olhar</h3>
+                        <p>Design de sobrancelhas impecável para harmonizar o seu rosto, aliados a serviços de estética pensados no detalhe.</p>
+                        <a href="#" onclick="openWA('Sobrancelhas')" class="btn btn-outline" style="width: 100%;">Marcar Horário</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="before-after">
+        <div class="container">
+            <div class="section-header">
+                <h2>Resultados Reais</h2>
+                <p>A evidência do nosso cuidado através das transformações das nossas clientes.</p>
+            </div>
+            
+            <div class="ba-grid">
+                <div class="ba-card"><img src="https://www.lmrcirurgiaplastica.pt/wp-content/uploads/2022/07/blefaroplastia-2.jpg" alt="Transformação Rosto"></div>
+                <div class="ba-card"><img src="https://www.mdsaude.com/wp-content/uploads/melasma-antes-depois.jpg" alt="Transformação Manchas"></div>
+                <div class="ba-card"><img src="https://i.pinimg.com/1200x/d1/91/93/d191936d3ed4a1a3f0f37d8dec596f28.jpg" alt="Transformação Sobrancelhas"></div>
+            </div>
+            <br><br>
+            <a href="#" onclick="openWA('Resultados')" class="btn btn-primary" style="background: white; color: var(--bg-dark);">Descobrir o Meu Protocolo</a>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Experiências Inesquecíveis</h2>
+                <p>Orgulhamo-nos das mais de 50 avaliações de excelência.</p>
+            </div>
+
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="r-text">"Uma experiência de puro luxo e cuidado. Deixa a cliente super à vontade e atenta às nossas necessidades. Os resultados do laser são incríveis."</p>
+                    <span class="r-author">Túlia Santos</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="r-text">"Foi super atenciosa e cuidadosa. As sobrancelhas ficaram espetaculares (tinha receio por não conhecer o espaço). Definitivamente irei voltar."</p>
+                    <span class="r-author">Jessica Bastos</span>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="r-text">"Recomendo vivamente pela diversidade de tratamentos, pela imensa simpatia, aconselhamento e preços adequados. O meu momento preferido do mês."</p>
+                    <span class="r-author">Rita Rodrigues</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 class="text-center" style="margin-bottom: 40px;">Dúvidas Frequentes</h2>
+                
+                <details>
+                    <summary>O tratamento a Laser Diodo é doloroso?</summary>
+                    <div class="faq-ans">A tecnologia de Laser Diodo que utilizamos é altamente avançada, possuindo um sistema de refrigeração que torna a sessão extremamente eficaz e confortável.</div>
+                </details>
+                <details>
+                    <summary>Fazem avaliação antes dos tratamentos de rosto?</summary>
+                    <div class="faq-ans">Sempre. Acreditamos que cada pele é única. Realizamos um diagnóstico rigoroso para definir o melhor protocolo (acne, manchas, anti-aging) para si.</div>
+                </details>
+                <details>
+                    <summary>Posso marcar tratamentos à hora de almoço?</summary>
+                    <div class="faq-ans">Sem dúvida. Funcionamos num horário contínuo (Seg-Sáb, 09h-19h), para que possa cuidar de si na sua pausa sem qualquer stress.</div>
+                </details>
+                <details>
+                    <summary>Onde fica a Clínica?</summary>
+                    <div class="faq-ans">Estamos situados no coração do Porto, na Rua de Damião de Góis 116, Loja 1. Existe facilidade de estacionamento nas imediações.</div>
+                </details>
+                
+                <div class="payment-methods">
+                    <h4>Métodos de Pagamento Aceites</h4>
+                    <div class="pay-icons">
+                        <span class="pay-tag">MB WAY</span>
+                        <span class="pay-tag">Multibanco</span>
+                        <span class="pay-tag">Visa / Mastercard</span>
+                        <span class="pay-tag">Numerário</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2 style="font-family: var(--font-title);">Clínica de Estética</h2>
+            <p>📍 R. de Damião de Góis 116 Loja 1, Porto</p>
+            <a href="https://maps.app.goo.gl/SUA-LOCALIZACAO-AQUI" target="_blank" style="text-decoration: underline; margin-top: 10px; display: inline-block;">Abrir Direções no Google Maps</a>
+            <p style="margin-top: 15px;">🕒 Seg a Sáb: 09h00 às 19h00 (Horário Contínuo)</p>
+            <p>📞 +351 910 057 812</p>
+            
+            <p style="margin-top: 50px; font-size: 0.8rem; opacity: 0.4;">© 2026 Clínica de Estética. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="#" onclick="openWA('Geral')" class="float-wa" title="Falar no WhatsApp">
+        <div class="wa-badge">1</div>
+        <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        function openWA(interesse) {
+            const tel = "351910057812"; 
+            let msg = "";
+            
+            if(interesse === 'Rosto') msg = "Olá! Gostava de saber mais sobre a avaliação e os tratamentos faciais.";
+            else if(interesse === 'Laser') msg = "Olá! Gostava de consultar os preços e pacotes para a depilação a Laser Diodo.";
+            else if(interesse === 'Sobrancelhas') msg = "Olá! Gostava de agendar o meu serviço de estética/sobrancelhas. Tem vagas?";
+            else if(interesse === 'Resultados') msg = "Olá! Vi as transformações no site e gostava de saber qual o protocolo indicado para mim.";
+            else msg = "Olá! Estive a visitar o vosso site e gostava de fazer uma marcação ou tirar uma dúvida.";
+
+            const url = `https://wa.me/${tel}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

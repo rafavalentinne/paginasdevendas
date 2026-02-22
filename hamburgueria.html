@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburgueria do Bairro - O Hambúrguer de Respeito</title>
+    <link rel="icon" href="lanchonete.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET E VARIÁVEIS --- */
+        :root {
+            --primary-color: #D90429;
+            --secondary-color: #EF233C;
+            --accent-color: #FFB703;
+            --text-dark: #2B2D42;
+            --text-light: #EDF2F4;
+            --bg-light: #F8F9FA;
+            --whatsapp-green: #25D366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; }
+        a { text-decoration: none; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- UTILITÁRIOS --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-family: 'Poppins', sans-serif;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        .btn-primary:hover { background-color: #b00220; transform: translateY(-2px); }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+        }
+        .btn-whatsapp:hover { background-color: #1ebc57; transform: translateY(-2px); }
+
+        .btn-sm { padding: 10px 25px; font-size: 0.9rem; }
+
+        .text-center { text-align: center; }
+        .section-padding { padding: 80px 0; }
+
+        /* --- BARRA DE AVISO (URGÊNCIA) --- */
+        .top-bar {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            text-align: center;
+            padding: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 36px;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo img { max-height: 45px; }
+        .logo span {
+            font-size: 1.3rem; font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.1;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 85vh; 
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* --- BENEFÍCIOS --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-bottom: 4px solid var(--primary-color);
+        }
+        .benefit-card:hover { transform: translateY(-10px); }
+        .benefit-icon { font-size: 3.5rem; margin-bottom: 20px; display: block; }
+        .benefit-card h3 { margin-bottom: 10px; color: var(--text-dark); }
+
+        /* --- CARDÁPIO (MENU) --- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f0f0;
+        }
+
+        .menu-item:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+
+        .menu-img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .menu-content { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
+        .menu-title { font-size: 1.5rem; margin-bottom: 10px; color: var(--text-dark); }
+        .menu-desc { font-size: 0.95rem; color: #666; margin-bottom: 25px; flex-grow: 1; }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .price { font-size: 1.6rem; font-weight: 800; color: var(--primary-color); }
+
+        /* --- CARRO CHEFE (COMBO) --- */
+        .highlight { background-color: var(--text-dark); color: white; margin-top: 80px; }
+        
+        .highlight-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+            padding: 80px 0;
+        }
+
+        .highlight-img img {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 5px solid white;
+        }
+
+        .highlight-text { flex: 1; min-width: 300px; }
+        .highlight-text h2 { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px; }
+        .highlight-text p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 30px; }
+
+        /* --- PROVA SOCIAL --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .quote-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .stars { color: var(--accent-color); margin-bottom: 15px; font-size: 1.1rem; letter-spacing: 2px; }
+        .quote-text { font-style: italic; color: #555; margin-bottom: 20px; font-size: 1rem; }
+        .quote-author { font-weight: 700; color: var(--text-dark); }
+
+        /* --- FAQ --- */
+        .faq-container { max-width: 800px; margin: 0 auto; margin-top: 40px; }
+        
+        details {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        summary::after { content: '+'; font-size: 1.5rem; color: var(--primary-color); }
+        details[open] summary::after { content: '-'; }
+        
+        .faq-answer { padding: 0 20px 20px 20px; color: #555; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            text-align: center;
+            padding: 60px 0 40px 0;
+            margin-top: 80px;
+        }
+        
+        .payment-icons { font-size: 2rem; margin: 20px 0; display: flex; justify-content: center; gap: 15px; }
+
+        /* --- BOTÃO FLUTUANTE --- */
+        .floating-whatsapp {
+            position: fixed; bottom: 25px; right: 25px;
+            background-color: var(--whatsapp-green); color: white;
+            width: 70px; height: 70px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 2000; transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .floating-whatsapp:hover { transform: scale(1.1); }
+        .wa-badge {
+            position: absolute; top: -5px; right: -5px;
+            background-color: red; color: white;
+            font-size: 12px; font-weight: bold;
+            width: 24px; height: 24px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 2px solid white;
+        }
+
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero { height: auto; padding: 100px 0; }
+            .highlight-container { flex-direction: column; text-align: center; }
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        🔥 Chapa Quente! Pedidos a sair em média em 30 minutos. Encomende Agora!
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span style="font-size: 2rem;">🍔</span>
+                    <div>
+                        <span style="display:block; font-size:1.1rem;">Hamburgueria</span>
+                        <span style="display:block; font-size:0.8rem; color:#666; font-weight:400;">Do Bairro</span>
+                    </div>
+                </div>
+                
+                <a href="#" onclick="abrirWhatsApp('Header')" class="btn btn-primary btn-sm">
+                    Fazer Pedido
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Hambúrguer Artesanal a Sério. <br><span style="color:var(--accent-color);">Suculento, Gigante e à Sua Porta.</span></h1>
+            <p>Carne picada no dia, pão brioche selado na manteiga e a nossa maionese de ervas caseira. Esqueça a Uber Eats e a Glovo, connosco é mais rápido e mais barato.</p>
+            <a href="#" onclick="abrirWhatsApp('Hero - Matar Fome')" class="btn btn-primary">
+                🤤 Matar a Fome Agora
+            </a>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 10px;">Porque é que todos adoram?</h2>
+            <p class="text-center" style="margin-bottom: 50px; color: #666;">Não é só um hambúrguer, é uma experiência.</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">🥩</span>
+                    <h3>100% Carne de Novilho</h3>
+                    <p>Blend especial de cortes nobres. Nada de carne processada.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🛵</span>
+                    <h3>Entrega Própria</h3>
+                    <p>Estafetas exclusivos da casa. O seu pedido não fica a passear pela cidade.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🔥</span>
+                    <h3>Garantia de Entrega Quente</h3>
+                    <p>Embalagem térmica premium. Se chegar frio, trocamos na hora.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #fff;">
+        <div class="container">
+            <h2 class="text-center">Os Favoritos da Malta</h2>
+            
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hambúrguer Clássico" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Clássico da Casa</h3>
+                        <p class="menu-desc">O simples perfeito. Pão brioche, hambúrguer 160g suculento, queijo cheddar a derreter, alface crocante, tomate e maionese de ervas da casa.</p>
+                        <div class="menu-footer">
+                            <span class="price">8,50 €</span>
+                            <a href="#" onclick="abrirWhatsApp('Clássico da Casa')" class="btn btn-whatsapp btn-sm">Quero Este</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div style="position:absolute; top:15px; right:15px; background:var(--primary-color); color:white; padding:5px 10px; border-radius:20px; font-weight:bold; font-size:0.8rem;">MAIS PEDIDO</div>
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Duplo Bacon" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Monster Bacon</h3>
+                        <p class="menu-desc">Para quem tem uma fome de leão! Dois hambúrgueres de 150g, montanha de bacon crocante, dobro do cheddar e cebola caramelizada.</p>
+                        <div class="menu-footer">
+                            <span class="price">11,90 €</span>
+                            <a href="#" onclick="abrirWhatsApp('Monster Bacon')" class="btn btn-whatsapp btn-sm">Quero Este</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="chicken.avif" alt="Frango Crispy" class="menu-img">
+                    <div class="menu-content">
+                        <h3 class="menu-title">Chicken Crispy</h3>
+                        <p class="menu-desc">Frango panado em Panko (super crocante), queijo, alface iceberg e molho especial de mostarda e mel.</p>
+                        <div class="menu-footer">
+                            <span class="price">9,50 €</span>
+                            <a href="#" onclick="abrirWhatsApp('Chicken Crispy')" class="btn btn-whatsapp btn-sm">Quero Este</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="highlight">
+        <div class="container highlight-container">
+            <div class="highlight-img">
+                <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?q=80&w=1000&auto=format&fit=crop" alt="Menu Família">
+            </div>
+            <div class="highlight-text">
+                <span style="color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Oferta Especial</span>
+                <h2>Menu Família</h2>
+                <p>O fim de semana pede! Leve <strong>3 Clássicos da Casa + 1 Dose Grande de Batatas</strong> com Cheddar e Bacon + Bebida de 2L.</p>
+                <p>A melhor relação qualidade-preço para partilhar (ou não!).</p>
+                <br>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <span style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color);">29,90 €</span>
+                    <a href="#" onclick="abrirWhatsApp('Menu Família')" class="btn btn-primary">Pedir Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center">Quem já pediu, aprovou</h2>
+            <div class="testimonial-grid">
+                
+                <div class="quote-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="quote-text">"Peço sempre à sexta-feira. O cheeseburger com salada é gigante e o estafeta é super educado. O melhor é que as batatas chegam crocantes, o que é raro."</p>
+                    <span class="quote-author">— Carlos M.</span>
+                </div>
+
+                <div class="quote-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="quote-text">"Finalmente uma hamburgueria que entrega a comida quente a sério! O hambúrguer é muito suculento. A maionese da casa é viciante."</p>
+                    <span class="quote-author">— Mariana S.</span>
+                </div>
+
+                <div class="quote-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="quote-text">"Sou exigente com hambúrgueres, mas vocês conquistaram-me. Pedi o Monster Bacon e estava divinal. Bacon crocante e no ponto perfeito."</p>
+                    <span class="quote-author">— Filipe D.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: #fff;">
+        <div class="container faq-container">
+            <h2 class="text-center" style="margin-bottom: 30px;">Perguntas Frequentes</h2>
+            
+            <details>
+                <summary>Aceitam Cartão Refeição?</summary>
+                <div class="faq-answer">Sim! Aceitamos Ticket Restaurant, Edenred e Euroticket. Levamos o terminal Multibanco até si.</div>
+            </details>
+            <details>
+                <summary>Quanto tempo demora a entrega?</summary>
+                <div class="faq-answer">A nossa média é de 30 a 45 minutos. Em dias de chuva ou alta procura, avisamos antes de fazer o pedido.</div>
+            </details>
+            <details>
+                <summary>Qual o valor da taxa de entrega?</summary>
+                <div class="faq-answer">A taxa varia por zona. No centro é Grátis! Para zonas vizinhas, média de 1,50 €. Consulte no WhatsApp.</div>
+            </details>
+            <details>
+                <summary>Posso levantar no local?</summary>
+                <div class="faq-answer">Claro! Ficamos na Rua das Flores, 123 - Lisboa. O seu pedido fica pronto em 15 minutinhos.</div>
+            </details>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>Hamburgueria do Bairro</h3>
+            <p>Rua das Flores, 123 - Lisboa</p>
+            <p>Aberto de Terça a Domingo, das 18h às 23h.</p>
+            
+            <div class="payment-icons">
+                <span>💳</span> <span>💵</span> <span>📱</span>
+            </div>
+            <p style="font-size: 0.8rem;">Aceitamos: MB Way, Crédito, Multibanco, Numerário e Cartão Refeição.</p>
+            
+            <br>
+            <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2024 Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="#" onclick="abrirWhatsApp('Botão Flutuante')" class="floating-whatsapp" title="Fale no WhatsApp">
+        <div class="wa-badge">1</div>
+        <svg viewBox="0 0 24 24" width="35" height="35" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        // --- CONFIGURAÇÃO ---
+        const numeroWhatsApp = "351912345678"; // CÓDIGO DE PAÍS +351 PARA PORTUGAL
+        
+        function abrirWhatsApp(item) {
+            let msg = "";
+            
+            if (item === 'Clássico da Casa') {
+                msg = "Olá! Quero pedir um *Clássico da Casa*. Qual o tempo de entrega?";
+            } else if (item === 'Monster Bacon') {
+                msg = "Olá! A fome está grande. Quero um *Monster Bacon*!";
+            } else if (item === 'Chicken Crispy') {
+                msg = "Olá! Quero experimentar o *Chicken Crispy*.";
+            } else if (item === 'Menu Família') {
+                msg = "Olá! Quero aproveitar a oferta do *Menu Família*.";
+            } else {
+                msg = "Olá! Vi o site e gostava de ver o menu completo e as taxas de entrega.";
+            }
+            
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
